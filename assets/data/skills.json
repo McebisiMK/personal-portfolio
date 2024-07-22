@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "value": ".Net Core (C#)",
+    "level": "Advanced",
+    "percentage": "95%"
+  },
+  {
+    "id": 2,
+    "value": "SQL Server",
+    "level": "Advanced",
+    "percentage": "85%"
+  },
+  {
+    "id": 3,
+    "value": "Angular 2+",
+    "level": "Advanced",
+    "percentage": "90%"
+  },
+  {
+    "id": 9,
+    "value": "React",
+    "level": "Good",
+    "percentage": "60%"
+  },
+  {
+    "id": 4,
+    "value": "Entity Framework Core",
+    "level": "Advanced",
+    "percentage": "95%"
+  },
+  {
+    "id": 5,
+    "value": "Unit Testing",
+    "level": "Advanced",
+    "percentage": "95%"
+  },
+  {
+    "id": 6,
+    "value": "GraphQL (HotChocolate)",
+    "level": "Advanced",
+    "percentage": "90%"
+  },
+  {
+    "id": 7,
+    "value": "Message Queuing",
+    "level": "Good",
+    "percentage": "70%"
+  },
+  {
+    "id": 8,
+    "value": "Serverless compute services",
+    "level": "Good",
+    "percentage": "60%"
+  },
+  {
+    "id": 10,
+    "value": "Azure DevOps",
+    "level": "Advanced",
+    "percentage": "90%"
+  }
+]
