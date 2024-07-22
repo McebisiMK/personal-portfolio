@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Matric",
+    "period": {
+      "start": "2007-01-01",
+      "end": "2009-12-31"
+    },
+    "description": "Matric (Grade 10 - Grade 12)",
+    "institution": "Dolophini Senior Secondary School"
+  },
+  {
+    "id": 2,
+    "name": "ND: Information Technology",
+    "period": {
+      "start": "2012-01-01",
+      "end": "2015-12-31"
+    },
+    "description": "National Diploma in Information Technology, majoring in Software Development",
+    "institution": "Walter Sisulu University of Technology"
+  },
+  {
+    "id": 3,
+    "name": "BTech: Information Technology",
+    "period": {
+      "start": "2012-01-01",
+      "end": "2015-12-31"
+    },
+    "description": "Bachelor of Technology in Information Technology, majoring in Software Development",
+    "institution": "Durban University of Technology"
+  }
+]

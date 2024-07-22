@@ -1,0 +1,47 @@
+<div class="section" id="projects">
+  <div class="container cc-education">
+    <div class="h4 text-center mb-4 title">Projects</div>
+
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+    <div class="row">
+      <ng-container *ngFor="let project of projects | paginate : config">
+        <div
+          class="col-md-4 col-sm-6 animate-box"
+          data-animate-effect="fadeInLeft"
+        >
+          <div class="blog-entry">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="{{ project.imageUrl }}"
+                onerror="this.src = 'assets/images/gif.gif'"
+                alt="Card image"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <h4 class="card-title"><b>{{ project.name }}</b></h4>
+                <h5 class="card-text">{{ project.description | limitTo: 160 }}</h5>
+                <h5 class="card-text">
+                  <b>Technology :</b> {{ project.technology | limitTo: 63 }}
+                </h5>
+                <h5 class="card-text">
+                  <a href="{{ project.githubUrl }}"
+                    >More info...</a
+                  >
+                </h5>
+                <a
+                  href="{{ project.githubUrl }}"
+                  class="btn btn-primary stretched-link"
+                  >GITHUB</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+  </div>
+</div>

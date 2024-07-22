@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Soccer Tournament Management",
+    "description": "C# .Net Core Web API with Angular font-end for managing soccer tournaments by registering teams to participate in a certain tournament which is done by paying minimum joining fee.",
+    "githubUrl": "https://github.com/McebisiMK/TournamentManagement",
+    "imageUrl": "assets/images/tournament_management.jpg",
+    "technology": ".Net Core 3.1, EF Core, SQL Server, Angular 2+, Repository Pattern, Unit Testing (NUnit)"
+  },
+  {
+    "id": 2,
+    "name": "Student Registration",
+    "description": "Student registration Web API using GraphQL, Test Driven Development (NUnit), Entity Framework Core and SQL Server Database.",
+    "githubUrl": "https://github.com/McebisiMK/GraphQL_Student_Registration",
+    "imageUrl": "assets/images/graphql.png",
+    "technology": ".Net Core 2.1, EF Core, SQL Server, GraphQL, Repository Pattern, Unit Testing (NUnit)"
+  },
+  {
+    "id": 3,
+    "name": "Generic Response",
+    "description": "Wraps all errors, info messages and data into one object. IsValid indicates whether the response is successful or not, Messages are used to log the steps or flow of API execution and errors contain all occurred errors.",
+    "githubUrl": "https://github.com/McebisiMK/GenericResponse",
+    "imageUrl": "assets/images/generic_response.png",
+    "technology": ".Net Core 6.0, Github Nuget Package"
+  }
+]

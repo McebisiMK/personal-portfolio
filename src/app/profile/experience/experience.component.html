@@ -1,0 +1,42 @@
+<div class="section" id="experience">
+  <div class="container cc-education">
+    <div class="h4 text-center mb-4 title">Work Experience</div>
+    <div class="colorlib-narrow-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="timeline-centered">
+            <article
+              *ngFor="let experience of experienceList"
+              class="timeline-entry animate-box"
+              data-animate-effect="fadeInLeft"
+            >
+              <div class="timeline-entry-inner">
+                <div class="timeline-icon color-2">
+                  <i class="icon-pen2"></i>
+                </div>
+
+                <div class="timeline-label">
+                  <h2>
+                    {{ experience.company }}
+                      <span>- &nbsp;
+                        {{ getExperienceStartYear(experience) }} - {{ getExperienceEndYear(experience) }},
+                        {{ experience.location }}
+                      </span
+                    >
+                  </h2>
+                  <h4>{{ experience.role }}</h4>
+
+                  <ul>
+                    <li *ngFor="let responsibility of experience.responsibilities | split">
+                      {{ responsibility }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

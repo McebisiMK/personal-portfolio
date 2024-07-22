@@ -1,0 +1,46 @@
+<div class="section" id="reference">
+  <div class="container cc-reference">
+    <div class="h4 mb-4 text-center title">References</div>
+    <div class="card" data-aos="zoom-in">
+      <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            *ngFor="
+              let reference of references;
+              let index = index;
+              let isFirst = first
+            "
+            [ngClass]="{ active: isFirst }"
+            data-target="#cc-Indicators"
+            [attr.data-slide-to]="index"
+          ></li>
+        </ol>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="
+              let reference of references;
+              let index = index;
+              let isFirst = first
+            "
+            [ngClass]="{ active: isFirst }"
+          >
+            <div class="row">
+              <div class="col-lg-2 col-md-3 cc-reference-header">
+                <img [src]="reference.imageUrl" alt="Image" />
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <p style="white-space: pre-line;">{{ reference.message }}</p>
+
+                <div class="h5 mt-1">{{ reference.fullname }}</div>
+                <p class="category">
+                  {{ reference.jobTitle }}, at {{ reference.company }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
