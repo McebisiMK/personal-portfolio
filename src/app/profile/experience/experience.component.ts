@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { Experience } from '../shared/models';
 import { ProfileService } from '../shared/services/profile.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'profile-experience',
@@ -10,7 +11,7 @@ import { ProfileService } from '../shared/services/profile.service';
 export class ExperienceComponent implements OnInit {
   experienceList: Array<Experience> = [];
 
-  constructor(private service: ProfileService) { }
+  constructor(private service: ProfileService, @Inject(LOCALE_ID) private locale: string) { }
 
   ngOnInit(): void {
     this.service.getExperience().subscribe((response) => {
@@ -18,13 +19,13 @@ export class ExperienceComponent implements OnInit {
     })
   }
 
-  getExperienceStartYear(experience: Experience): string {
-    return new Date(experience.period.start).getFullYear().toString();
+  getExperienceStartDate(experience: Experience): string {
+    return formatDate(experience.period.start, 'MMM yyyy', this.locale);
   }
 
-  getExperienceEndYear(experience: Experience): string {
+  getExperienceEndDate(experience: Experience): string {
     const endDate = experience.period.end;
 
-    return endDate ? new Date(endDate).getFullYear().toString() : "Present";
+    return endDate ? formatDate(endDate, 'MMM yyyy', this.locale) : "Present";
   }
 }
