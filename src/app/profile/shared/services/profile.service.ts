@@ -1,11 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { BasicInformation, Education, Experience, Project, Reference, Skill } from '../models';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import {
+  BasicInformation,
+  Education,
+  Experience,
+  Project,
+  Reference,
+  Skill
+} from "../models";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProfileService {
   private readonly data = "assets/data";
 

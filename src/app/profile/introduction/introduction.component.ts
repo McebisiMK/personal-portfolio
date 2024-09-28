@@ -4,19 +4,21 @@ import { ProfileService } from '../shared/services/profile.service';
 
 @Component({
   selector: 'profile-introduction',
+  standalone: true,
+  imports: [],
   templateUrl: './introduction.component.html',
   styleUrl: './introduction.component.scss'
 })
 export class IntroductionComponent implements OnInit {
+  fullName: string = '';
   basicInformation: BasicInformation | undefined;
-  fullname: string | undefined;
 
-  constructor(private service: ProfileService) { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.service.getBasicInformation().subscribe((response) => {
-      this.basicInformation = response;
-      this.fullname = `${response.firstName} ${response.lastName}`;
+    this.profileService.getBasicInformation().subscribe((basicInformation) => {
+      this.basicInformation = basicInformation;
+      this.fullName = `${basicInformation.firstName} ${basicInformation.lastName}`;
     })
   }
 }

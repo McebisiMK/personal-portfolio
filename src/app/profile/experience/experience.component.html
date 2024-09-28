@@ -18,16 +18,21 @@
                 <div class="timeline-label">
                   <h2>
                     {{ experience.company }}
-                      <span>- &nbsp;
-                        {{ getExperienceStartDate(experience) }} - {{ getExperienceEndDate(experience) }},
-                        {{ experience.location }}
-                      </span
-                    >
+                    <span
+                      >- &nbsp; {{ getExperienceStartDate(experience) }} -
+                      {{ getExperienceEndDate(experience) }},
+                      {{ experience.location }}
+                    </span>
                   </h2>
                   <h4>{{ experience.role }}</h4>
 
                   <ul>
-                    <li *ngFor="let responsibility of experience.responsibilities | split">
+                    <li
+                      *ngFor="
+                        let responsibility of experience.responsibilities
+                          | split
+                      "
+                    >
                       {{ responsibility }}
                     </li>
                   </ul>

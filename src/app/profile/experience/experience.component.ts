@@ -1,21 +1,24 @@
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { Experience } from '../shared/models';
 import { ProfileService } from '../shared/services/profile.service';
-import { formatDate } from '@angular/common';
+import { CommonModule, formatDate } from '@angular/common';
+import { SplitPipe } from '../shared/pipes/split.pipe';
 
 @Component({
-  selector: 'profile-experience',
+  selector: 'app-experience',
+  standalone: true,
+  imports: [SplitPipe, CommonModule],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent implements OnInit {
   experienceList: Array<Experience> = [];
 
-  constructor(private service: ProfileService, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private profileService: ProfileService, @Inject(LOCALE_ID) private locale: string) { }
 
   ngOnInit(): void {
-    this.service.getExperience().subscribe((response) => {
-      this.experienceList = response;
+    this.profileService.getExperience().subscribe((experienceList) => {
+      this.experienceList = experienceList;
     })
   }
 

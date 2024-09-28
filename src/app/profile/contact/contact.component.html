@@ -14,9 +14,8 @@
                   <div class="card-body">
                     <form
                       name="form"
-                      (ngSubmit)="(f.form.valid); f.resetForm()"
-                      #f="ngForm"
-                      novalidate
+                      [formGroup]="contactForm!"
+                      (ngSubmit)="onSubmit()"
                     >
                       <div class="p pb-3">
                         <strong>Feel free to contact me </strong>
@@ -32,13 +31,25 @@
                               type="text"
                               name="name"
                               placeholder="Name"
-                              [(ngModel)]="contactModel.name"
-                              #name="ngModel"
-                              [ngClass]="{
-                                'is-invalid': f.submitted && name.invalid
-                              }"
-                              required
+                              formControlName="name"
                             />
+                          </div>
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              formControls['name'].invalid &&
+                              (formControls['name'].touched ||
+                                formControls['name'].dirty)
+                            "
+                          >
+                            <span
+                              *ngIf="formControls['name'].errors?.['required']"
+                              >Name is required</span
+                            >
+                            <span
+                              *ngIf="formControls['name'].errors?.['minlength']"
+                              >Name must be at least 4 characters
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -53,13 +64,25 @@
                               type="text"
                               name="subject"
                               placeholder="Subject"
-                              [(ngModel)]="contactModel.subject"
-                              #subject="ngModel"
-                              [ngClass]="{
-                                'is-invalid': f.submitted && subject.invalid
-                              }"
-                              required
+                              formControlName="subject"
                             />
+                          </div>
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              formControls['subject'].invalid &&
+                              (formControls['subject'].touched ||
+                                formControls['subject'].dirty)
+                            "
+                          >
+                            <span
+                              *ngIf="formControls['subject'].errors?.['required']"
+                              >Subject is required</span
+                            >
+                            <span
+                              *ngIf="formControls['subject'].errors?.['minlength']"
+                              >Subject must be at least 10 characters
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -74,14 +97,25 @@
                               type="text"
                               name="email"
                               placeholder="E-mail"
-                              [(ngModel)]="contactModel.email"
-                              #email="ngModel"
-                              [ngClass]="{
-                                'is-invalid': f.submitted && email.invalid
-                              }"
-                              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                              required
+                              formControlName="email"
                             />
+                          </div>
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              formControls['email'].invalid &&
+                              (formControls['email'].touched ||
+                                formControls['email'].dirty)
+                            "
+                          >
+                            <span
+                              *ngIf="formControls['email'].errors?.['required']"
+                              >Email is required</span
+                            >
+                            <span
+                              *ngIf="formControls['email'].errors?.['minlength']"
+                              >Email must be at least 6 characters
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -92,19 +126,35 @@
                               class="form-control"
                               name="message"
                               placeholder="Your Message"
-                              [(ngModel)]="contactModel.message"
-                              #message="ngModel"
-                              [ngClass]="{
-                                'is-invalid': f.submitted && message.invalid
-                              }"
-                              required
+                              formControlName="message"
                             ></textarea>
+                          </div>
+                          <div
+                            class="text-danger"
+                            *ngIf="
+                              formControls['message'].invalid &&
+                              (formControls['message'].touched ||
+                                formControls['message'].dirty)
+                            "
+                          >
+                            <span
+                              *ngIf="formControls['message'].errors?.['required']"
+                              >Message is required</span
+                            >
+                            <span
+                              *ngIf="formControls['message'].errors?.['minlength']"
+                              >Message must be at least 20 characters
+                            </span>
                           </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">
+                          <button
+                            class="btn btn-primary"
+                            type="submit"
+                            [disabled]="contactForm!.invalid"
+                          >
                             Send
                           </button>
                         </div>
