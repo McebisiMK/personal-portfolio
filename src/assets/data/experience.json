@@ -1,16 +1,27 @@
 [
   {
     "id": 1,
+    "company": "AfroCentric Group",
+    "location": "Roodeport, Gauteng, South Africa",
+    "period": {
+      "start": "2026-02-01"
+    },
+    "role": "Senior Specialist Developer",
+    "responsibilities": "Build and maintain internal healthcare applications with Java and .NET backends, Angular frontends, and Oracle databases . Introduced GraphQL (HotChocolate backend, Apollo Client frontend), enabling model joins, filtering, sorting, paging, and caching . Introduced React alongside Angular, giving the team flexibility to choose the right framework per project . Collaborated with stakeholders to translate business requirements into system design . Provided ongoing operational support and contributed to performance improvements"
+  },
+  {
+    "id": 2,
     "company": "Super Group Limited",
     "location": "Remote",
     "period": {
-      "start": "2022-11-01"
+      "start": "2022-11-01",
+      "end": "2026-01-31"
     },
     "role": "Full Stack Software Engineer",
     "responsibilities": "Plan, Analyze, Develop and maintain Web APIs and Windows Services . Review code, Mentor and guide junior developers . Consume .Net APIs with Angular (v14 with statement management using NGXS and dynamic forms) . Manage projects, repositories and CI/CD on Azure . Design, Create and Manage SQL Server databases"
   },
   {
-    "id": 2,
+    "id": 3,
     "company": "Old Mutual Limited",
     "location": "Durban, KwaZulu-Natal, South Africa",
     "period": {
@@ -21,7 +32,7 @@
     "responsibilities": "Developing, testing, debugging and maintaining AWS Serverless applications . Integrating third-party applications . Consuming AWS Serverless Applications with VueJS . Create CI/CD pipelines on CodeBuild, CodePipeline, CodeDeploy . Provisioning AWS resources using terraform scripts (Infrastructure as code)"
   },
   {
-    "id": 3,
+    "id": 4,
     "company": "Senwes Limited",
     "location": "Klerksdorp, North West, South Africa",
     "period": {
@@ -32,7 +43,7 @@
     "responsibilities": "Developing, testing, debugging and maintaining web applications . Integrating third-party applications . Consuming RESTful .Net Core Applications with Angular . Create CI/CD pipelines on Azure DevOps . Creating databases and store procedures using SQL-Server"
   },
   {
-    "id": 4,
+    "id": 5,
     "company": "DocFox South Africa",
     "location": "Sandton, Gauteng, South Africa",
     "period": {
@@ -43,7 +54,7 @@
     "responsibilities": "Developing, debugging and maintaining web applications using Ruby on Rails and React . Writing and maintaining reliable Ruby on Rails applications . Writing and maintaining reliable React and JavaScript applications . Testing using Jest, Minitest, RSpec, and Cypress"
   },
   {
-    "id": 5,
+    "id": 6,
     "company": "Choice Sourcing",
     "location": "Rosebank, Gauteng, South Africa",
     "period": {
@@ -54,7 +65,7 @@
     "responsibilities": "Design, develop, test and debug solutions that meet customer requirement and expectation . Support existing code base - Core Web Product and support infrastructure . Test and develop programming modifications . Design and develop solutions to improve the efficiency of internal staff"
   },
   {
-    "id": 6,
+    "id": 7,
     "company": "SA Home Loans",
     "location": "Durban, KwaZulu-Natal, South Africa",
     "period": {
@@ -65,7 +76,7 @@
     "responsibilities": "Developing REST Web APIs using C#, .Net Core, CQRS paradigms and unit tests written with NUnit . Developing UI using JavaScript, AngularJS, HTML and specs written with Jasmine . Extending and maintaining enterprise web applications . Perform full system testing on all system changes, enhancements and new system releases . Create test packs and develop procedures to follow during the testing process . Developing, updating, perform User acceptance testing and expanding of automated test suites"
   },
   {
-    "id": 7,
+    "id": 8,
     "company": "Coralite Training Academy",
     "location": "Sandton, Gauteng, South Africa",
     "period": {
