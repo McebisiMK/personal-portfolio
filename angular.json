@@ -35,13 +35,20 @@
                 "input": "public"
               },
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets",
+                "ignore": ["data/**"]
+              }
             ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "server": "src/main.server.ts",
+              "prerender": true,
               "budgets": [
                 {
                   "type": "initial",
