@@ -1,184 +1,21 @@
-<div class="section" id="contact">
-  <div
-    class="cc-contact-information"
-    style="background-image: url('assets/images/contact_background.jpg')"
-  >
-    <div class="container">
-      <div class="cc-contact">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="card mb-0" data-aos="zoom-in">
-              <div class="h4 text-center title">Contact Me</div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <form
-                      name="form"
-                      [formGroup]="contactForm!"
-                      (ngSubmit)="onSubmit()"
-                    >
-                      <div class="p pb-3">
-                        <strong>Feel free to contact me </strong>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-user-circle"></i>
-                            </span>
-                            <input
-                              class="form-control"
-                              type="text"
-                              name="name"
-                              placeholder="Name"
-                              formControlName="name"
-                            />
-                          </div>
-                          <div
-                            class="text-danger"
-                            *ngIf="
-                              formControls['name'].invalid &&
-                              (formControls['name'].touched ||
-                                formControls['name'].dirty)
-                            "
-                          >
-                            <span
-                              *ngIf="formControls['name'].errors?.['required']"
-                              >Name is required</span
-                            >
-                            <span
-                              *ngIf="formControls['name'].errors?.['minlength']"
-                              >Name must be at least 4 characters
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-file-text"></i>
-                            </span>
-                            <input
-                              class="form-control"
-                              type="text"
-                              name="subject"
-                              placeholder="Subject"
-                              formControlName="subject"
-                            />
-                          </div>
-                          <div
-                            class="text-danger"
-                            *ngIf="
-                              formControls['subject'].invalid &&
-                              (formControls['subject'].touched ||
-                                formControls['subject'].dirty)
-                            "
-                          >
-                            <span
-                              *ngIf="formControls['subject'].errors?.['required']"
-                              >Subject is required</span
-                            >
-                            <span
-                              *ngIf="formControls['subject'].errors?.['minlength']"
-                              >Subject must be at least 10 characters
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group">
-                            <span class="input-group-addon">
-                              <i class="fa fa-envelope"></i>
-                            </span>
-                            <input
-                              class="form-control"
-                              type="text"
-                              name="email"
-                              placeholder="E-mail"
-                              formControlName="email"
-                            />
-                          </div>
-                          <div
-                            class="text-danger"
-                            *ngIf="
-                              formControls['email'].invalid &&
-                              (formControls['email'].touched ||
-                                formControls['email'].dirty)
-                            "
-                          >
-                            <span
-                              *ngIf="formControls['email'].errors?.['required']"
-                              >Email is required</span
-                            >
-                            <span
-                              *ngIf="formControls['email'].errors?.['minlength']"
-                              >Email must be at least 6 characters
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="form-group">
-                            <textarea
-                              class="form-control"
-                              name="message"
-                              placeholder="Your Message"
-                              formControlName="message"
-                            ></textarea>
-                          </div>
-                          <div
-                            class="text-danger"
-                            *ngIf="
-                              formControls['message'].invalid &&
-                              (formControls['message'].touched ||
-                                formControls['message'].dirty)
-                            "
-                          >
-                            <span
-                              *ngIf="formControls['message'].errors?.['required']"
-                              >Message is required</span
-                            >
-                            <span
-                              *ngIf="formControls['message'].errors?.['minlength']"
-                              >Message must be at least 20 characters
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <button
-                            class="btn btn-primary"
-                            type="submit"
-                            [disabled]="contactForm!.invalid"
-                          >
-                            Send
-                          </button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <p class="mb-0">
-                      <strong>Phone</strong>
-                    </p>
-                    <p class="pb-2">{{ basicInformation?.phone }}</p>
-                    <p class="mb-0">
-                      <strong>Email</strong>
-                    </p>
-                    <p>{{ basicInformation?.email }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="section tinted" id="contact" aria-labelledby="contact-title">
+  <div class="container contact-band">
+    <div>
+      <h2 id="contact-title">Contact</h2>
+      <p>Email or call me, or connect on LinkedIn.</p>
+    </div>
+    <div class="contact-actions">
+      @if (showContact()) {
+        <span class="copy-group primary">
+          <a [href]="'mailto:' + basicInformation?.email">{{ basicInformation?.email }}</a>
+          <copy-button [value]="basicInformation?.email" label="email address" />
+        </span>
+        <span class="copy-group">
+          <a [href]="basicInformation?.phone | tel">{{ basicInformation?.phone }}</a>
+          <copy-button [value]="basicInformation?.phone" label="phone number" />
+        </span>
+      }
+      <a class="button" href="https://www.linkedin.com/in/mcebisi-mkhohliwe-99362411a" target="_blank" rel="noopener">LinkedIn &#8599;</a>
     </div>
   </div>
-</div>
+</section>
