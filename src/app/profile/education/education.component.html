@@ -1,34 +1,20 @@
-<div class="section" id="education">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Education</div>
-    <div *ngFor="let education of educationList" class="card">
-      <div class="row">
-        <div
-          class="col-md-3 bg-primary"
-          data-aos="fade-right"
-          data-aos-offset="50"
-          data-aos-duration="500"
-        >
-          <div class="card-body cc-education-header">
-            <p>
-              {{ getEducationStartYear(education) }} -
-              {{ getEducationEndYear(education) }}
+<section class="section" id="education" aria-labelledby="education-title">
+  <div class="container">
+    <h2 id="education-title">Education</h2>
+    <ul class="education-list">
+      @for (education of educationList; track education.id) {
+        <li class="lift">
+          <article class="card">
+            <p class="dates">
+              {{ education.period.start | date: "yyyy" }} &ndash;
+              {{ education.period.end ? (education.period.end | date: "yyyy") : "Present" }}
             </p>
-            <div class="h5">{{ education.name }}</div>
-          </div>
-        </div>
-        <div
-          class="col-md-9"
-          data-aos="fade-left"
-          data-aos-offset="50"
-          data-aos-duration="500"
-        >
-          <div class="card-body">
-            <h4 class="category">{{ education.institution }}</h4>
-            <div class="h5">{{ education.description }}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <h3>{{ education.name }}</h3>
+            <p class="company">{{ education.institution }}</p>
+            <p>{{ education.description }}</p>
+          </article>
+        </li>
+      }
+    </ul>
   </div>
-</div>
+</section>

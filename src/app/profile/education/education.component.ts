@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Education } from '../shared/models';
 import { ProfileService } from '../shared/services/profile.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,17 +17,7 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileService.getEducation().subscribe((educationList) => {
-      this.educationList = educationList;
+      this.educationList = [...educationList].reverse();
     })
-  }
-
-  getEducationStartYear(education: Education): string {
-    return new Date(education.period.start).getFullYear().toString();
-  }
-
-  getEducationEndYear(education: Education): string {
-    const endDate = education.period.end;
-
-    return endDate ? new Date(endDate).getFullYear().toString() : "Present";
   }
 }
