@@ -1,62 +1,137 @@
 [
   {
     "id": 1,
-    "value": ".Net Core (C#)",
-    "level": "Advanced",
-    "percentage": "95%"
+    "value": ".NET Core (C#)",
+    "category": "Backend",
+    "featured": true,
+    "headline": 1
   },
   {
     "id": 2,
-    "value": "SQL Server",
-    "level": "Advanced",
-    "percentage": "85%"
+    "value": "Java",
+    "category": "Backend"
   },
   {
     "id": 3,
-    "value": "Angular 2+",
-    "level": "Advanced",
-    "percentage": "90%"
-  },
-  {
-    "id": 9,
-    "value": "React",
-    "level": "Good",
-    "percentage": "60%"
+    "value": "GraphQL (HotChocolate)",
+    "category": "Backend",
+    "featured": true,
+    "headline": 4
   },
   {
     "id": 4,
     "value": "Entity Framework Core",
-    "level": "Advanced",
-    "percentage": "95%"
+    "category": "Backend",
+    "featured": true
   },
   {
     "id": 5,
-    "value": "Unit Testing",
-    "level": "Advanced",
-    "percentage": "95%"
+    "value": "CQRS",
+    "category": "Backend",
+    "featured": true
   },
   {
     "id": 6,
-    "value": "GraphQL (HotChocolate)",
-    "level": "Advanced",
-    "percentage": "90%"
+    "value": "Ruby on Rails",
+    "category": "Backend"
   },
   {
     "id": 7,
     "value": "Message Queuing",
-    "level": "Good",
-    "percentage": "70%"
+    "category": "Backend"
   },
   {
     "id": 8,
-    "value": "Serverless compute services",
-    "level": "Good",
-    "percentage": "60%"
+    "value": "Angular 2+",
+    "category": "Frontend",
+    "featured": true,
+    "headline": 2
+  },
+  {
+    "id": 9,
+    "value": "React",
+    "category": "Frontend",
+    "featured": true
   },
   {
     "id": 10,
-    "value": "Azure DevOps",
-    "level": "Advanced",
-    "percentage": "90%"
+    "value": "Vue.js",
+    "category": "Frontend"
+  },
+  {
+    "id": 11,
+    "value": "NGXS",
+    "category": "Frontend"
+  },
+  {
+    "id": 12,
+    "value": "SQL Server",
+    "category": "Data",
+    "featured": true,
+    "headline": 3
+  },
+  {
+    "id": 13,
+    "value": "Oracle",
+    "category": "Data"
+  },
+  {
+    "id": 14,
+    "value": "PostgreSQL",
+    "category": "Data"
+  },
+  {
+    "id": 15,
+    "value": "MongoDB",
+    "category": "Data"
+  },
+  {
+    "id": 16,
+    "value": "DynamoDB (AWS)",
+    "category": "Data"
+  },
+  {
+    "id": 17,
+    "value": "Azure",
+    "category": "Cloud & DevOps",
+    "featured": true,
+    "headline": 5
+  },
+  {
+    "id": 18,
+    "value": "CI/CD",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "id": 19,
+    "value": "GitHub Actions",
+    "category": "Cloud & DevOps",
+    "featured": true
+  },
+  {
+    "id": 20,
+    "value": "AWS",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "id": 21,
+    "value": "Terraform",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "id": 22,
+    "value": "Serverless compute services",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "id": 23,
+    "value": "Unit Testing",
+    "category": "Testing",
+    "featured": true
+  },
+  {
+    "id": 24,
+    "value": "Cypress",
+    "category": "Testing"
   }
 ]

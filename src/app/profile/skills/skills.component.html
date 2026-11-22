@@ -1,30 +1,32 @@
-<div class="section" id="skill">
+<section class="section" id="skill" aria-labelledby="skill-title">
   <div class="container">
-    <div class="h4 text-center mb-4 title">Skills</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6" *ngFor="let skill of skills">
-            <div class="progress-container progress-primary">
-              <span class="progress-badge">{{ skill.value }}</span>
-              <div class="progress">
-                <div
-                  class="progress-bar progress-bar-primary"
-                  data-aos="progress-full"
-                  data-aos-offset="10"
-                  data-aos-duration="2000"
-                  role="progressbar"
-                  aria-valuenow="60"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  [style.width]="skill.percentage"
-                ></div>
-                <span class="progress-value">{{ skill.level }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="section-heading">
+      <h2 id="skill-title">Skills</h2>
+      <p class="skill-key"><span aria-hidden="true"></span>Core stack</p>
     </div>
+    <ul class="skill-grid">
+      @for (group of groups; track group.category) {
+        <li class="lift">
+          <div class="card skill-card">
+            <h3>
+              <span class="skill-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path [attr.d]="icons[group.category]" /></svg>
+              </span>
+              {{ group.category }}
+            </h3>
+            <ul class="tags">
+              @for (skill of group.skills; track skill.id) {
+                <li [class.core]="skill.featured">
+                  {{ skill.value }}
+                  @if (skill.featured) {
+                    <span class="sr-only">(core stack)</span>
+                  }
+                </li>
+              }
+            </ul>
+          </div>
+        </li>
+      }
+    </ul>
   </div>
-</div>
+</section>

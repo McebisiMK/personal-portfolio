@@ -1,6 +1,7 @@
 export interface Skill {
   id: number;
   value: string;
-  level: string;
-  percentage: string;
+  category: string;
+  featured?: boolean;
+  headline?: number;
 }
