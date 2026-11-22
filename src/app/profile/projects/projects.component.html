@@ -1,53 +1,66 @@
-<div class="section" id="projects">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Projects</div>
-
-    <pagination-controls
-      (pageChange)="onPageChange($event)"
-    ></pagination-controls>
-
-    <div class="row">
-      <ng-container *ngFor="let project of projects | paginate : config">
-        <div
-          class="col-md-4 col-sm-6 animate-box"
-          data-animate-effect="fadeInLeft"
-        >
-          <div class="blog-entry">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="{{ project.imageUrl }}"
-                onerror="this.src = 'assets/images/gif.gif'"
-                alt="Card image"
-                style="width: 100%"
-              />
-              <div class="card-body">
-                <h4 class="card-title">
-                  <b>{{ project.name }}</b>
-                </h4>
-                <h5 class="card-text">
-                  {{ project.description | limitTo : 160 }}
-                </h5>
-                <h5 class="card-text">
-                  <b>Technology :</b> {{ project.technology | limitTo : 63 }}
-                </h5>
-                <h5 class="card-text">
-                  <a href="{{ project.githubUrl }}">More info...</a>
-                </h5>
-                <a
-                  href="{{ project.githubUrl }}"
-                  class="btn btn-primary stretched-link"
-                  >GITHUB</a
-                >
+<section class="section tinted" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="projects-title">Projects</h2>
+      <a class="all-projects" href="https://github.com/McebisiMK?tab=repositories" target="_blank" rel="noopener">
+        All on GitHub &#8599;
+      </a>
+    </div>
+    <ul class="project-list">
+      @for (project of projects; track project.id) {
+        <li class="lift" [class.wide]="project.featured">
+          <article class="card project" [class.featured]="project.featured">
+            <div class="project-main">
+              <p class="project-kicker">
+                @if (project.featured) {
+                  <span class="badge">Featured</span>
+                }
+                {{ project.category }} &middot; {{ project.year }}
+              </p>
+              <h3>{{ project.name }}</h3>
+              <p class="project-description">{{ project.description }}</p>
+              <ul class="project-highlights">
+                @for (highlight of project.highlights; track highlight) {
+                  <li>{{ highlight }}</li>
+                }
+              </ul>
+              <ul class="tags" aria-label="Technology">
+                @for (technology of project.technology; track technology) {
+                  <li>{{ technology }}</li>
+                }
+              </ul>
+              <div class="project-links">
+                @for (link of project.links; track link.url) {
+                  <a class="project-link" [href]="link.url" target="_blank" rel="noopener">
+                    {{ link.label }} &#8599;<span class="sr-only">: {{ project.name }}</span>
+                  </a>
+                }
               </div>
             </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-
-    <pagination-controls
-      (pageChange)="onPageChange($event)"
-    ></pagination-controls>
+            @if (project.featured && project.architecture) {
+              <div class="project-visual">
+                <p class="visual-title">How it fits together</p>
+                <ol class="architecture">
+                  @for (layer of project.architecture; track layer.name) {
+                    <li>
+                      <strong>{{ layer.name }}</strong>
+                      <span>{{ layer.role }}</span>
+                    </li>
+                  }
+                </ol>
+                <ul class="project-stats">
+                  @for (stat of project.stats; track stat.label) {
+                    <li>
+                      <strong>{{ stat.value }}</strong>
+                      <span>{{ stat.label }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </article>
+        </li>
+      }
+    </ul>
   </div>
-</div>
+</section>

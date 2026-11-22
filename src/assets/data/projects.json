@@ -1,26 +1,135 @@
 [
   {
     "id": 1,
-    "name": "Soccer Tournament Management",
-    "description": "C# .Net Core Web API with Angular font-end for managing soccer tournaments by registering teams to participate in a certain tournament which is done by paying minimum joining fee.",
-    "githubUrl": "https://github.com/McebisiMK/TournamentManagement",
-    "imageUrl": "assets/images/tournament_management.jpg",
-    "technology": ".Net Core 3.1, EF Core, SQL Server, Angular 2+, Repository Pattern, Unit Testing (NUnit)"
+    "name": "Transaction Dispute Portal",
+    "category": "Full-stack application",
+    "year": 2026,
+    "featured": true,
+    "description": "A banking portal where customers dispute card and account transactions and follow each decision, while agents work a review queue to approve or reject them.",
+    "highlights": [
+      "Clean Architecture and CQRS, with business rules in the domain",
+      "Role-based sign-in with Keycloak (OIDC and PKCE)",
+      "Concurrency control, so two agents cannot overwrite each other",
+      "Health checks, rate limiting and structured logging"
+    ],
+    "stats": [
+      {
+        "value": "264",
+        "label": "automated tests"
+      },
+      {
+        "value": "CI",
+        "label": "on both repositories"
+      },
+      {
+        "value": "Docker",
+        "label": "one-command setup"
+      }
+    ],
+    "architecture": [
+      {
+        "name": "React 19 + TypeScript",
+        "role": "Customer and agent web app"
+      },
+      {
+        "name": ".NET 10 Web API",
+        "role": "CQRS, validation, domain rules"
+      },
+      {
+        "name": "SQL Server",
+        "role": "EF Core with optimistic concurrency"
+      }
+    ],
+    "technology": [
+      "C#",
+      ".NET 10",
+      "React",
+      "TypeScript",
+      "SQL Server",
+      "Keycloak",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "links": [
+      {
+        "label": "API code",
+        "url": "https://github.com/McebisiMK/TransactionDisputePortal"
+      },
+      {
+        "label": "Web app code",
+        "url": "https://github.com/McebisiMK/transaction-dispute-portal-web"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Cash Operations",
+    "category": "Angular + GraphQL",
+    "year": 2025,
+    "description": "A full-stack app for capturing, editing and reviewing cash transactions.",
+    "highlights": [
+      "Server-side paging, filtering and sorting with HotChocolate",
+      "Apollo Client with a typed, generated GraphQL schema"
+    ],
+    "technology": [
+      "Angular 19",
+      "GraphQL",
+      ".NET 8",
+      "Apollo",
+      "SQL Server"
+    ],
+    "links": [
+      {
+        "label": "View code",
+        "url": "https://github.com/McebisiMK/Cash-Systems-Test"
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Student Registration",
-    "description": "Student registration Web API using GraphQL, Test Driven Development (NUnit), Entity Framework Core and SQL Server Database.",
-    "githubUrl": "https://github.com/McebisiMK/GraphQL_Student_Registration",
-    "imageUrl": "assets/images/graphql.png",
-    "technology": ".Net Core 2.1, EF Core, SQL Server, GraphQL, Repository Pattern, Unit Testing (NUnit)"
+    "name": "Account Management",
+    "category": "Backend refactor",
+    "year": 2026,
+    "description": "A bank withdrawal endpoint rebuilt from a single controller method into a layered, event-publishing service.",
+    "highlights": [
+      "An atomic database update prevents concurrent overdrafts",
+      "Publishes withdrawal events to AWS SNS"
+    ],
+    "technology": [
+      ".NET 10",
+      "CQRS",
+      "EF Core",
+      "AWS SNS",
+      "Serilog"
+    ],
+    "links": [
+      {
+        "label": "View code",
+        "url": "https://github.com/McebisiMK/AccountManagement"
+      }
+    ]
   },
   {
     "id": 3,
-    "name": "Generic Response",
-    "description": "Wraps all errors, info messages and data into one object. IsValid indicates whether the response is successful or not, Messages are used to log the steps or flow of API execution and errors contain all occurred errors.",
-    "githubUrl": "https://github.com/McebisiMK/GenericResponse",
-    "imageUrl": "assets/images/generic_response.png",
-    "technology": ".Net Core 6.0, Github Nuget Package"
+    "name": "Elevator Challenge",
+    "category": "Algorithm and design",
+    "year": 2025,
+    "description": "A console simulation that moves passengers through a large building as efficiently as possible.",
+    "highlights": [
+      "Assigns pickups by direction and passenger capacity",
+      "Clean Architecture, with unit-tested scheduling"
+    ],
+    "technology": [
+      ".NET 9",
+      "CQRS",
+      "NUnit",
+      "NSubstitute"
+    ],
+    "links": [
+      {
+        "label": "View code",
+        "url": "https://github.com/McebisiMK/ElevatorChallenge"
+      }
+    ]
   }
 ]
