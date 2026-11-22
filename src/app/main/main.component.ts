@@ -8,7 +8,9 @@ import { FooterComponent } from "./footer/footer.component";
   imports: [HeaderComponent, FooterComponent],
   template: `
     <main-header />
+    <main id="main" tabindex="-1">
       <ng-content />
+    </main>
     <main-footer />
   `,
   styles: []

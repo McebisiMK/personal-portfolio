@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, afterNextRender } from '@angular/core';
 import { MainComponent } from "../main/main.component";
 import { IntroductionComponent } from "./introduction/introduction.component";
 import { ProfileService } from './shared/services/profile.service';
@@ -28,4 +28,12 @@ import { ContactComponent } from "./contact/contact.component";
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export class ProfileComponent { }
+export class ProfileComponent {
+  constructor() {
+    afterNextRender(() => {
+      const id = window.location.hash.slice(1);
+
+      if (id) setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'instant' }));
+    });
+  }
+}
