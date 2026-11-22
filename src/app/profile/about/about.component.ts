@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../shared/services/profile.service';
 import { BasicInformation } from '../shared/models';
+import { CopyButtonComponent } from '../shared/components/copy-button/copy-button.component';
+import { browserOnly } from '../shared/browser-only';
+import { TelPipe } from '../shared/pipes/tel.pipe';
 import { SplitPipe } from '../shared/pipes/split.pipe';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'profile-about',
   standalone: true,
-  imports: [SplitPipe, CommonModule],
+  imports: [SplitPipe, TelPipe, CopyButtonComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
 export class AboutComponent implements OnInit {
+  readonly showContact = browserOnly();
   basicInformation: BasicInformation | undefined;
 
   constructor(private profileService: ProfileService) { }

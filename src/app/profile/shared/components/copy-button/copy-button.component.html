@@ -1,0 +1,17 @@
+<button
+  class="copy-button"
+  type="button"
+  [class.copied]="state() === 'copied'"
+  [class.failed]="state() === 'failed'"
+  [attr.aria-label]="'Copy ' + label"
+  [title]="'Copy ' + label"
+  (click)="copy()"
+>
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path [attr.d]="icons[state()]" /></svg>
+</button>
+<span class="sr-only" role="status">
+  @switch (state()) {
+    @case ("copied") { Copied {{ label }} }
+    @case ("failed") { Could not copy {{ label }} }
+  }
+</span>

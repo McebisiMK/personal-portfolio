@@ -1,59 +1,40 @@
-<div class="section" id="about">
-  <div class="container">
-    <div class="card" data-aos="fade-up" data-aos-offset="10">
-      <div class="row">
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">About</div>
-            <div>
-              <ul>
-                <li *ngFor="let about of basicInformation?.about | split">
-                  {{ about }}
-                </li>
-              </ul>
-            </div>
-          </div>
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="prose">
+      <h2 id="about-title">About</h2>
+      @for (paragraph of basicInformation?.about | split; track $index) {
+        <p>{{ paragraph }}.</p>
+      }
+    </div>
+    <div class="about-aside lift">
+      <dl class="card facts">
+        <div>
+          <dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7" /></svg><span class="sr-only">Email</span></dt>
+          <dd>
+            @if (showContact()) {
+              <a [href]="'mailto:' + basicInformation?.email">{{ basicInformation?.email }}</a>
+              <copy-button [value]="basicInformation?.email" label="email address" />
+            }
+          </dd>
         </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">Basic Information</div>
-            <div class="row">
-              <div class="col-sm-4">
-                <strong class="text-uppercase">Date of Birth:</strong>
-              </div>
-              <div class="col-sm-8">
-                {{ basicInformation?.dateOfBirth | date : "dd MMMM yyyy" }}
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4">
-                <strong class="text-uppercase">Email:</strong>
-              </div>
-              <div class="col-sm-8">{{ basicInformation?.email }}</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4">
-                <strong class="text-uppercase">Phone:</strong>
-              </div>
-              <div class="col-sm-8">{{ basicInformation?.phone }}</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4">
-                <strong class="text-uppercase">Address:</strong>
-              </div>
-              <div class="col-sm-8">{{ basicInformation?.address }}</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4">
-                <strong class="text-uppercase">Language:</strong>
-              </div>
-              <div class="col-sm-8">
-                {{ basicInformation?.languages?.join(", ") }}
-              </div>
-            </div>
-          </div>
+        <div>
+          <dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" /></svg><span class="sr-only">Phone</span></dt>
+          <dd>
+            @if (showContact()) {
+              <a [href]="basicInformation?.phone | tel">{{ basicInformation?.phone }}</a>
+              <copy-button [value]="basicInformation?.phone" label="phone number" />
+            }
+          </dd>
         </div>
-      </div>
+        <div>
+          <dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-11.5a7 7 0 0 0-14 0C5 15 12 21 12 21zM12 7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" /></svg><span class="sr-only">Location</span></dt>
+          <dd>{{ basicInformation?.location }}</dd>
+        </div>
+        <div>
+          <dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v13H9l-5 4zM8 9h8M8 13h5" /></svg><span class="sr-only">Languages</span></dt>
+          <dd>{{ basicInformation?.languages?.join(", ") }}</dd>
+        </div>
+      </dl>
     </div>
   </div>
-</div>
+</section>
