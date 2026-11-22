@@ -7,9 +7,9 @@
       </button>
     </div>
     <ol class="timeline">
-      @for (experience of experienceList; track experience.id; let index = $index) {
+      @for (experience of experienceList; track experience.id) {
         <li class="lift" [class.current]="!experience.period.end">
-          <details #role class="card job" [attr.open]="index < initiallyExpanded ? '' : null" (toggle)="updateExpanded()">
+          <details #role class="card job" (toggle)="updateExpanded()">
             <summary>
               <span class="job-main">
                 <h3>{{ experience.role }}</h3>

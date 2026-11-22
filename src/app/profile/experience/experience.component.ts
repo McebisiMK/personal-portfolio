@@ -21,7 +21,6 @@ import { SplitPipe } from '../shared/pipes/split.pipe';
   styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent implements OnInit {
-  readonly initiallyExpanded = 3;
   experienceList: Array<Experience> = [];
   allExpanded = false;
 
