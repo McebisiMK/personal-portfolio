@@ -1,4 +1,13 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  LOCALE_ID,
+  OnInit,
+  QueryList,
+  ViewChildren
+} from '@angular/core';
 import { Experience } from '../shared/models';
 import { ProfileService } from '../shared/services/profile.service';
 import { CommonModule, formatDate } from '@angular/common';
@@ -12,7 +21,12 @@ import { SplitPipe } from '../shared/pipes/split.pipe';
   styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent implements OnInit {
+  readonly initiallyExpanded = 3;
   experienceList: Array<Experience> = [];
+  allExpanded = false;
+
+  @ViewChildren('role') private roles!: QueryList<ElementRef<HTMLDetailsElement>>;
+  private collapsedBeforePrint: Array<HTMLDetailsElement> = [];
 
   constructor(private profileService: ProfileService, @Inject(LOCALE_ID) private locale: string) { }
 
@@ -20,6 +34,28 @@ export class ExperienceComponent implements OnInit {
     this.profileService.getExperience().subscribe((experienceList) => {
       this.experienceList = experienceList;
     })
+  }
+
+  toggleAll(): void {
+    const open = !this.allExpanded;
+
+    this.roles.forEach((role) => role.nativeElement.open = open);
+    this.allExpanded = open;
+  }
+
+  updateExpanded(): void {
+    this.allExpanded = this.roles.toArray().every((role) => role.nativeElement.open);
+  }
+
+  @HostListener('window:beforeprint')
+  expandForPrint(): void {
+    this.collapsedBeforePrint = this.roles.map((role) => role.nativeElement).filter((role) => !role.open);
+    this.collapsedBeforePrint.forEach((role) => role.open = true);
+  }
+
+  @HostListener('window:afterprint')
+  restoreAfterPrint(): void {
+    this.collapsedBeforePrint.forEach((role) => role.open = false);
   }
 
   getExperienceStartDate(experience: Experience): string {

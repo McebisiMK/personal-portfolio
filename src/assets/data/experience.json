@@ -18,7 +18,7 @@
       "end": "2026-01-31"
     },
     "role": "Full Stack Software Engineer",
-    "responsibilities": "Plan, Analyze, Develop and maintain Web APIs and Windows Services . Review code, Mentor and guide junior developers . Consume .Net APIs with Angular (v14 with statement management using NGXS and dynamic forms) . Manage projects, repositories and CI/CD on Azure . Design, Create and Manage SQL Server databases"
+    "responsibilities": "Plan, Analyze, Develop and maintain Web APIs and Windows Services . Review code, Mentor and guide junior developers . Consume .Net APIs with Angular (v14 with state management using NGXS and dynamic forms) . Manage projects, repositories and CI/CD on Azure . Design, Create and Manage SQL Server databases"
   },
   {
     "id": 3,
@@ -40,7 +40,7 @@
       "end": "2022-03-31"
     },
     "role": "Full Stack Developer",
-    "responsibilities": "Developing, testing, debugging and maintaining web applications . Integrating third-party applications . Consuming RESTful .Net Core Applications with Angular . Create CI/CD pipelines on Azure DevOps . Creating databases and store procedures using SQL-Server"
+    "responsibilities": "Developing, testing, debugging and maintaining web applications . Integrating third-party applications . Consuming RESTful .Net Core Applications with Angular . Create CI/CD pipelines on Azure DevOps . Creating databases and stored procedures using SQL-Server"
   },
   {
     "id": 5,
