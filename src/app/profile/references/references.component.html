@@ -1,46 +1,56 @@
-<div class="section" id="reference">
-  <div class="container cc-reference">
-    <div class="h4 mb-4 text-center title">Recommendations</div>
-    <div class="card" data-aos="zoom-in">
-      <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li
-            *ngFor="
-              let reference of references;
-              let index = index;
-              let isFirst = first
-            "
-            [ngClass]="{ active: isFirst }"
-            data-target="#cc-Indicators"
-            [attr.data-slide-to]="index"
-          ></li>
-        </ol>
-        <div class="carousel-inner">
-          <div
-            class="carousel-item"
-            *ngFor="
-              let reference of references;
-              let index = index;
-              let isFirst = first
-            "
-            [ngClass]="{ active: isFirst }"
+<section class="section dark" id="reference" aria-labelledby="reference-title">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="reference-title">Recommendations</h2>
+      @if (references.length) {
+        <div class="pager">
+          <button
+            type="button"
+            aria-label="Previous recommendation"
+            [attr.aria-disabled]="current === 0"
+            (click)="show(current - 1)"
           >
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header">
-                <img [src]="reference.imageUrl" alt="Image" />
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <p style="white-space: pre-line">{{ reference.message }}</p>
-
-                <div class="h5 mt-1">{{ reference.fullName }}</div>
-                <p class="category">
-                  {{ reference.jobTitle }}, at {{ reference.company }}
-                </p>
-              </div>
-            </div>
-          </div>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <span class="count" aria-live="polite">{{ current + 1 }} of {{ references.length }}</span>
+          <button
+            type="button"
+            aria-label="Next recommendation"
+            [attr.aria-disabled]="current === references.length - 1"
+            (click)="show(current + 1)"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
         </div>
-      </div>
+      }
     </div>
+    <ol
+      #track
+      class="reference-list"
+      aria-labelledby="reference-title"
+      [attr.tabindex]="references.length > 1 ? 0 : null"
+      (scroll)="onScroll()"
+      (keydown.arrowleft)="$event.preventDefault(); show(current - 1)"
+      (keydown.arrowright)="$event.preventDefault(); show(current + 1)"
+    >
+      @for (reference of references; track reference.id) {
+        <li class="lift">
+          <div class="reference">
+            <span class="reference-number" aria-hidden="true">{{ $index + 1 }}</span>
+            <figure class="quote">
+              <figcaption>
+                <img [src]="reference.imageUrl" width="64" height="64" loading="lazy" alt="" />
+                <span>
+                  <strong>{{ reference.fullName }}</strong>
+                  {{ reference.jobTitle }}
+                  <span class="reference-company">{{ reference.company }}</span>
+                </span>
+              </figcaption>
+              <blockquote>{{ reference.message }}</blockquote>
+            </figure>
+          </div>
+        </li>
+      }
+    </ol>
   </div>
-</div>
+</section>
